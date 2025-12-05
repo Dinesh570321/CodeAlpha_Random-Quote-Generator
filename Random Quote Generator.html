@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Quote Generator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      width: 400px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .quote {
+      font-size: 18px;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .author {
+      font-size: 16px;
+      color: #888;
+      margin-bottom: 25px;
+    }
+
+    button {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Random Quote Generator</h1>
+    <div class="quote" id="quoteText">"Loading..."</div>
+    <div class="author" id="quoteAuthor">- -</div>
+    <button onclick="generateQuote()">New Quote</button>
+  </div>
+
+  <script>
+    const quotes = [
+      { text: "The best way to predict the future is to create it.", author: "Peter Drucker" },
+      { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+      { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
+      { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+      { text: "Your time is limited, don't waste it living someone else's life.", author: "Steve Jobs" },
+      { text: "Act as if what you do makes a difference. It does.", author: "William James" }
+    ];
+
+    function generateQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const randomQuote = quotes[randomIndex];
+      document.getElementById('quoteText').innerText = '"' + randomQuote.text + '"';
+      document.getElementById('quoteAuthor').innerText = '- ' + randomQuote.author;
+    }
+
+    // Generate one on load
+    window.onload = generateQuote;
+  </script>
+</body>
+</html>
